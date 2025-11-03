@@ -13,7 +13,7 @@ function Navbar() {
         Películas
       </NavLink>
       <NavLink to="/registro" className="nav-link">
-        Registro
+        Membresía
       </NavLink>
     </nav>
   );
