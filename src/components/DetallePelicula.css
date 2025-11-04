@@ -1,0 +1,41 @@
+.detalle-container {
+  display: flex;
+  gap: 25px;
+  padding: 35px;
+  color: #fff;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  margin: 30px;
+}
+
+.poster-detalle {
+  width: 380px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.detalle-info h1 {
+  color: #ffcc00;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.detalle-info p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+
+/* responsive */
+@media (max-width: 800px) {
+  .detalle-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .poster-detalle {
+    width: 90%;
+  }
+}

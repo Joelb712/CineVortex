@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import HomePage from "./components/Pages/HomePage";
 import PeliculasPage from "./components/Pages/PeliculasPage";
 import RegistroPage from "./components/Pages/RegistroPage";
+import PeliculaDetalle from './components/PeliculaDetalle';
 
   // font-family: 'Arial', sans-serif;
   // min-height: 100vh;
@@ -24,6 +25,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/peliculas" element={<PeliculasPage />} />
             <Route path="/registro" element={<RegistroPage />} />
+            <Route path="/peliculas/:id" element={<PeliculaDetalle />} />
             <Route path="*" element={<h2>Página no encontrada - Error 404</h2>} />
           </Routes>
         </main>

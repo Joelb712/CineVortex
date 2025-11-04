@@ -1,3 +1,5 @@
+import React from "react";
+
 function CardPelicula({ pelicula }) {
   return (
     <div style={{

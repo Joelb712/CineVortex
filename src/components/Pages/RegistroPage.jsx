@@ -72,6 +72,7 @@ function RegistroPage() {
               onChange={handleChange}
               placeholder="ejemplo@correo.com"
               required
+              pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
             />
           </div>
 
@@ -94,6 +95,8 @@ function RegistroPage() {
               value={formData.telefono}
               onChange={handleChange}
               placeholder="(123) 456-7890"
+              inputMode="numeric"
+              pattern="^[0-9]+$"
             />
           </div>
 

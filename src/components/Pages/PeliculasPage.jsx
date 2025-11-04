@@ -99,7 +99,7 @@ function PeliculasPage() {
                                                 fontSize: 12
                                             }}
                                             >
-                                            Inspeccionar
+                                            Ver más
                                         </Link>
                                     </div>
                                 </div>
