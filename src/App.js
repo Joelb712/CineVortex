@@ -6,10 +6,6 @@ import PeliculasPage from "./components/Pages/PeliculasPage";
 import RegistroPage from "./components/Pages/RegistroPage";
 import PeliculaDetalle from './components/PeliculaDetalle';
 
-  // font-family: 'Arial', sans-serif;
-  // min-height: 100vh;
-
-  // flex-direction: column;
 function App() {
   return (
     <BrowserRouter>

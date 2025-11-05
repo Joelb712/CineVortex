@@ -1,4 +1,3 @@
-// 🎬 Importar posters desde /src/assets/
 import deadpoolPoster from '../assets/deadpool.jpg';
 import jokerPoster from '../assets/joker.jpg';
 import dunePoster from '../assets/dune.jpg';

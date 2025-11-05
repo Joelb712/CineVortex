@@ -1,12 +1,12 @@
-// src/components/Cartelera.jsx
+
 import React from "react";
 
 function Cartelera({ peliculas }) {
 
-  // Filtrar solo películas 2025
+  
   const peliculas2025 = peliculas.filter(p => p.año === 2025);
 
-  // Mezclar aleatoriamente
+  
   const peliculasRandom = peliculas2025
     .sort(() => 0.5 - Math.random())
     .slice(0, 6); // toma 6 películas aleatorias

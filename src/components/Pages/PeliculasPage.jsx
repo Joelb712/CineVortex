@@ -1,15 +1,14 @@
-// src/components/Pages/PeliculasPage.jsx
 import React, { useState, useMemo } from "react";
 import { peliculasData } from "../Peliculas";
-import Buscador from "../Buscador"; // componente que crearemos
-import FiltroCategorias from "../FiltroCategorias"; // componente que crearemos
-import ListaPeliculas from "../ListaPeliculas"; // componente que crearemos
+import Buscador from "../Buscador"; 
+import FiltroCategorias from "../FiltroCategorias"; 
+import ListaPeliculas from "../ListaPeliculas"; 
 import { Link } from "react-router-dom";
 
 function PeliculasPage() {
-  // array hardcodeado dentro del componente (2024/2025) - posters placeholders por ahora
+  
 
-  // categorías en español (tal como confirmaste)
+  
     const categorias = [
         "todas",
         "acción",
@@ -20,11 +19,11 @@ function PeliculasPage() {
         "ciencia ficción"
     ];
 
-    // estados para búsqueda y categoría
+    
     const [buscarPeli, setBuscarPeli] = useState("");
     const [categoriaActiva, setCategoriaActiva] = useState("todas");
 
-    // filtrado combinado (nombre + categoría) usando useMemo para claridad
+    
     const peliculasFiltradas = useMemo(() => {
         const texto = buscarPeli.trim().toLowerCase();
 
@@ -46,12 +45,12 @@ function PeliculasPage() {
                 </p>
             </header>
 
-            {/* SearchBar - pasa props (value + onChange) */}
+            {/* Barra de busqueda*/}
             <section style={{ marginTop: "20px" }}>
                 <Buscador value={buscarPeli} onChange={(val) => setBuscarPeli(val)} />
             </section>
 
-            {/* CategoryFilter - pasa lista de categorías, categoría activa y handler */}
+            {/* Filtro de categoria*/}
             <section style={{ marginTop: "10px" }}>
                 <FiltroCategorias
                     categorias={categorias}
@@ -60,9 +59,9 @@ function PeliculasPage() {
                 />
             </section>
 
-            {/* MoviesList - recibe array filtrado y renderiza MovieCard (componente aparte) */}
+            {/* Lista de peliculas */}
             <section style={{ marginTop: "20px" }}>
-                {/* En caso de que todavía no hayas creado MoviesList, se puede mostrar la lista simple */}
+                
                 {typeof ListaPelis !== "undefined" ? (
                     <ListaPeliculas peliculas={peliculasFiltradas} />
                 ) : (
