@@ -45,7 +45,14 @@ function RegistroPage() {
             <input
               type="text"
               placeholder="Tu nombre"
-              {...register("nombre", { required: "El nombre es obligatorio" })}
+              maxLength={30}
+              {...register("nombre", { 
+                required: "El nombre es obligatorio",
+                pattern:{
+                  value:/^[A-Za-z\s]+$/,
+                  message: "El nombre solo permite letras y espacios"  
+                }
+              })}
             />
             {errors.nombre && <p className="error">{errors.nombre.message}</p>}
           </div>
@@ -56,7 +63,14 @@ function RegistroPage() {
             <input
               type="text"
               placeholder="Tu apellido"
-              {...register("apellido", { required: "El apellido es obligatorio" })}
+              maxLength={30}
+              {...register("apellido", { 
+                required: "El apellido es obligatorio",
+                pattern:{
+                  value:/^[A-Za-z\s]+$/,
+                  message: "El apellido solo permite letras y espacios"
+                }
+              })}
             />
             {errors.apellido && <p className="error">{errors.apellido.message}</p>}
           </div>
@@ -78,7 +92,23 @@ function RegistroPage() {
             {errors.email && <p className="error">{errors.email.message}</p>}
           </div>
 
-          
+          <div className="form-group">
+            <label>Dni:</label>
+            <input
+              type="dni"
+              placeholder="40123456"
+              maxLength={9}
+              {...register("dni", {
+                required: "El dni es obligatorio",
+                pattern: {
+                  value: /^[0-9]+$/,
+                  message: "Solo se permiten números"
+                }
+              })}
+            />
+            {errors.dni && <p className="error">{errors.dni.message}</p>}
+          </div>
+
           <div className="form-group">
             <label>Fecha de Nacimiento:</label>
             <input
@@ -93,7 +123,8 @@ function RegistroPage() {
             <label>Teléfono (opcional):</label>
             <input
               type="tel"
-              placeholder="(123) 456-7890"
+              placeholder="123 456-7890"
+              maxLength={12}
               {...register("telefono", {
                 pattern: {
                   value: /^[0-9]+$/,
