@@ -1,6 +1,7 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 import { peliculasData } from "./Peliculas";
-import "./DetallePelicula.css";
+import "./PeliculaDetalle.css";
 
 function PeliculaDetalle() {
   const { id } = useParams();

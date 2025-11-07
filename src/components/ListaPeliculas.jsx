@@ -1,3 +1,4 @@
+import React from "react";
 import CardPelicula from "./CardPelicula";
 
 function ListaPeliculas({ peliculas }) {

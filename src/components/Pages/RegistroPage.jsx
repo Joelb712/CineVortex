@@ -1,21 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm } from "react-hook-form";
 import "./RegistroPage.css";
 
 function RegistroPage() {
-  const [formData, setFormData] = useState({
-    nombre: "",
-    email: "",
-    telefono: ""
-  });
+  
+  const {
+    register,        
+    handleSubmit,    
+    reset,          
+    formState: { errors }
+  } = useForm();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Gracias por registrarte, ${formData.nombre}!`);
-    setFormData({ nombre: "", email: "", telefono: "" });
+  const onSubmit = (data) => {
+    alert(`Gracias por registrarte, ${data.nombre}!`);
+    reset();
   };
 
   return (
@@ -38,66 +36,72 @@ function RegistroPage() {
 
       <section className="registro-form-section">
         <h2>Formulario de registro</h2>
-        <form onSubmit={handleSubmit} className="registro-form">
+
+        <form onSubmit={handleSubmit(onSubmit)} className="registro-form">
+
+          
           <div className="form-group">
             <label>Nombre:</label>
             <input
               type="text"
-              name="nombre"
-              value={formData.nombre}
-              onChange={handleChange}
               placeholder="Tu nombre"
-              required
+              {...register("nombre", { required: "El nombre es obligatorio" })}
             />
+            {errors.nombre && <p className="error">{errors.nombre.message}</p>}
           </div>
 
+          
           <div className="form-group">
             <label>Apellido:</label>
             <input
               type="text"
-              name="apellido"
-              value={formData.apellido}
-              onChange={handleChange}
               placeholder="Tu apellido"
-              required
+              {...register("apellido", { required: "El apellido es obligatorio" })}
             />
+            {errors.apellido && <p className="error">{errors.apellido.message}</p>}
           </div>
 
+          
           <div className="form-group">
             <label>Email:</label>
             <input
               type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
               placeholder="ejemplo@correo.com"
-              required
-              pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+              {...register("email", {
+                required: "El email es obligatorio",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "El formato del email no es válido"
+                }
+              })}
             />
+            {errors.email && <p className="error">{errors.email.message}</p>}
           </div>
 
+          
           <div className="form-group">
             <label>Fecha de Nacimiento:</label>
             <input
               type="date"
-              name="fechaNac"
-              value={formData.fechaNac}
-              onChange={handleChange}
-              required
+              {...register("fechaNac", { required: "La fecha de nacimiento es obligatoria" })}
             />
+            {errors.fechaNac && <p className="error">{errors.fechaNac.message}</p>}
           </div>
 
+          
           <div className="form-group">
             <label>Teléfono (opcional):</label>
             <input
               type="tel"
-              name="telefono"
-              value={formData.telefono}
-              onChange={handleChange}
               placeholder="(123) 456-7890"
-              inputMode="numeric"
-              pattern="^[0-9]+$"
+              {...register("telefono", {
+                pattern: {
+                  value: /^[0-9]+$/,
+                  message: "Solo se permiten números"
+                }
+              })}
             />
+            {errors.telefono && <p className="error">{errors.telefono.message}</p>}
           </div>
 
           <button type="submit" className="btn-submit">Registrarse</button>
